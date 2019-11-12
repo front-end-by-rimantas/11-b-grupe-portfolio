@@ -2,6 +2,7 @@
 .container-full {
     display: inline-block;
     width: 100%;
+    padding: 100px 0;
 }
     .container > .row {
         display: inline-block;

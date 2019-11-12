@@ -6,6 +6,40 @@
 /************************************************************/
 /* LAYOUT */
 
+.bg-primary {
+    background-color: var(--color-primary-light);
+}
+.bg-grey {
+    background-color: var(--color-grey);
+}
+
+h2 {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+}
+    h2::before {
+        content: '';
+        display: inline-block;
+        width: 50px;
+        height: 3px;
+        margin: -60px calc(50% - 25px);
+        background-color: var(--color-primary-light);
+    }
+    h2::after {
+        content: '';
+        display: inline-block;
+        width: 80px;
+        height: 2px;
+        margin: 12px calc(50% - 40px);
+        background-color: var(--color-primary-light);
+    }
+    h2.up {
+        text-transform: uppercase;
+    }
+
 /************************************************************/
 
 /************************************************************/
