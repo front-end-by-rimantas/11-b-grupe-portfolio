@@ -4,23 +4,25 @@
 
 // hero
 
-// clients
-
 // about me
 
-// numbers
-
-// skills
-
-// latest work
-
-// job history
+// portfolio
 
 // services
+renderServices( services );
 
-// testimonials
+// team
 
-// contact me
+// numbers
+renderAchievements( numbers );
+
+// pricing
+
+// blog
+
+// contact us
+
+// maps
 
 // footer
 

@@ -6,6 +6,42 @@
 /************************************************************/
 /* LAYOUT */
 
+.bg-primary {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-light-anti);
+}
+.bg-grey {
+    background-color: var(--color-grey);
+    color: var(--color-grey-anti);
+}
+
+h2 {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+}
+    h2::before {
+        content: '';
+        display: inline-block;
+        width: 50px;
+        height: 3px;
+        margin: -60px calc(50% - 25px);
+        background-color: var(--color-primary-light);
+    }
+    h2::after {
+        content: '';
+        display: inline-block;
+        width: 80px;
+        height: 2px;
+        margin: 12px calc(50% - 40px);
+        background-color: var(--color-primary-light);
+    }
+    h2.up {
+        text-transform: uppercase;
+    }
+
 /************************************************************/
 
 /************************************************************/
@@ -19,37 +55,100 @@
 /************************************************************/
 
 /************************************************************/
-/* CLIENTS */
-
-/************************************************************/
-
-/************************************************************/
 /* ABOUT ME */
 
 /************************************************************/
 
 /************************************************************/
-/* NUMBERS */
-
-/************************************************************/
-
-/************************************************************/
-/* SKILLS */
-
-/************************************************************/
-
-/************************************************************/
-/* LATEST WORK */
-
-/************************************************************/
-
-/************************************************************/
-/* JOB HISTORY */
+/* PORTFOLIO */
 
 /************************************************************/
 
 /************************************************************/
 /* SERVICES */
+.service {
+    display: inline-block;
+    width: calc(100% / 3);
+    float: left;
+    padding: 20px;
+    text-align: center;
+}
+    .service > i {
+        display: inline-block;
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .service > h3 {
+        display: inline-block;
+        width: 100%;
+        margin: 10px 0;
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .service > p {
+        display: inline-block;
+        width: 100%;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+/************************************************************/
+
+/************************************************************/
+/* TEAM */
+
+/************************************************************/
+
+/************************************************************/
+/* NUMBERS */
+.bg-achievements {
+    background-image: url(../img/count-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.achievement {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+    .achievement > .center {
+        display: inline-block;
+    }
+    .achievement i {
+        display: inline-block;
+        font-size: 50px;
+        line-height: 60px;
+        text-align: right;
+    }
+    .achievement .texts {
+        display: inline-block;
+        margin-left: 15px;
+        text-align: left;
+    }
+        .achievement .texts > .number {
+            display: inline-block;
+            font-size: 40px;
+            line-height: 50px;
+        }
+        .achievement .texts > .title {
+            display: inline-block;
+            font-size: 18px;
+            line-height: 20px;
+            text-transform: uppercase;
+        }
+
+/************************************************************/
+
+/************************************************************/
+/* PRICING */
+
+/************************************************************/
+
+/************************************************************/
+/* BLOG */
 
 /************************************************************/
 
@@ -60,6 +159,11 @@
 
 /************************************************************/
 /* CONTACT ME */
+
+/************************************************************/
+
+/************************************************************/
+/* MAPS */
 
 /************************************************************/
 
