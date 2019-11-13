@@ -8,9 +8,11 @@
 
 .bg-primary {
     background-color: var(--color-primary-light);
+    color: var(--color-primary-light-anti);
 }
 .bg-grey {
     background-color: var(--color-grey);
+    color: var(--color-grey-anti);
 }
 
 h2 {
@@ -99,6 +101,44 @@ h2 {
 
 /************************************************************/
 /* NUMBERS */
+.bg-achievements {
+    background-image: url(../img/count-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.achievement {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+    .achievement > .center {
+        display: inline-block;
+    }
+    .achievement i {
+        display: inline-block;
+        font-size: 50px;
+        line-height: 60px;
+        text-align: right;
+    }
+    .achievement .texts {
+        display: inline-block;
+        margin-left: 15px;
+        text-align: left;
+    }
+        .achievement .texts > .number {
+            display: inline-block;
+            font-size: 40px;
+            line-height: 50px;
+        }
+        .achievement .texts > .title {
+            display: inline-block;
+            font-size: 18px;
+            line-height: 20px;
+            text-transform: uppercase;
+        }
 
 /************************************************************/
 
