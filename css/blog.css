@@ -1,57 +1,49 @@
-.blog-list {
+body .blog {
     display: inline-block;
-    width: calc(100% + 30px);
-    margin: 0 -15px;
-    overflow: hidden;
+    position: relative;
+    margin: 20px 0;
 }
-    .blog-list > .blog {
+    .blog > img {
         display: inline-block;
-        width: calc((100% - 90px) / 3);
-        float: left;
-        margin: 0 15px;
-        position: relative;
+        width: 100%;
+        height: 350px;
+        background-color: var(--color-primary-light);
+        border-radius: 8px;
+        overflow: hidden;
+        object-fit: cover;
+        object-position: bottom center;
     }
-        .blog-list > .blog > img {
-            display: inline-block;
-            width: 100%;
-            height: 350px;
-            background-color: var(--color-primary-light);
-            border-radius: 8px;
-            overflow: hidden;
-            object-fit: cover;
-            object-position: bottom center;
-        }
-        .blog-list > .blog > .date {
-            display: inline-block;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 5px 10px;
-            text-decoration: none;
-            text-transform: uppercase;
-            background-color: var(--color-primary-dark);
-            color: var(--color-primary-dark-anti);
-            border-radius: 5px;
-        }
-        .blog-list > .blog > .title {
-            display: inline-block;
-            width: 100%;
-            margin: 15px 0;
-            font-size: 24px;
-            line-height: 30px;
-            text-decoration: none;
-        }
-        .blog-list > .blog > p {
-            display: inline-block;
-            width: 100%;
-            margin-bottom: 20px;
-            font-size: 16px;
-            line-height: 20px;
-        }
-        .blog-list > .blog > .more {
-            display: inline-block;
-            text-decoration: none;
-            font-size: 20px;
-            line-height: 36px;
-            border-bottom: 1px solid blue;
-        }
+    .blog > .date {
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        background-color: var(--color-primary-dark);
+        color: var(--color-primary-dark-anti);
+        border-radius: 5px;
+    }
+    .blog > .title {
+        display: inline-block;
+        width: 100%;
+        margin: 15px 0;
+        font-size: 24px;
+        line-height: 30px;
+        text-decoration: none;
+    }
+    .blog > p {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .blog > .more {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 20px;
+        line-height: 36px;
+        border-bottom: 1px solid blue;
+    }
