@@ -5,22 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio</title>
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png"/>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/custom.css">
 </head>
 <body>
     <!-- header start -->
-    <div class="container-full">
+    <header class="container-full" id="main_header">
         <div class="row">
             <div class="col-12">
-                HEADER
+                <img class="logo" src="./img/logo.png" alt="Logo">
+                <i class="fa fa-bars"></i>
+                <nav>
+                    <a href="#" class="active">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#services">Services</a>
+                    <a href="#team">Team</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/">Login</a>
+                </nav>
             </div>
         </div>
-    </div>
+        <div class="overlay">
+            <div class="menu">
+                <div class="title">Menu</div>
+                <i class="fa fa-times"></i>
+            </div>
+        </div>
+    </header>
     <!-- header end -->
 
     <!-- hero start -->
-    <div class="container bg-primary">
+    <div class="container bg-primary" id="hero">
         <div class="row">
             <div class="col-8 m-l-2 col-md-10 m-l-md-1 col-sm-12 m-l-sm-0">
                 HERO
@@ -30,7 +48,7 @@
     <!-- hero end -->
 
     <!-- about me start -->
-    <div class="container">
+    <div class="container" id="about">
         <div class="row">
             <h2>About us</h2>
         </div>
@@ -46,7 +64,7 @@
     <!-- about me end -->
 
     <!-- portfolio start -->
-    <div class="container bg-grey">
+    <div class="container bg-grey" id="portfolio">
         <div class="row">
             <div class="col-12">
                 <h2>Our portfolio</h2>
@@ -66,13 +84,13 @@
     <!-- portfolio end -->
 
     <!-- services start -->
-    <div class="container">
+    <div class="container"id="services">
         <div class="row">
             <div class="col-12">
                 <h2>Our services</h2>
             </div>
         </div>
-        <div class="row" id="services">
+        <div class="row" id="services_list">
             <!-- <div class="service">
                 <i class="fa fa-facebook"></i>
                 <h3>Service title</h3>
@@ -88,7 +106,7 @@
     <!-- services end -->
 
     <!-- team start -->
-    <div class="container bg-grey">
+    <div class="container bg-grey" id="team">
         <div class="row">
             <div class="col-12">
                 <h2 class="up">Our team</h2>
@@ -132,11 +150,11 @@
     <!-- pricing end -->
 
     <!-- blog start -->
-    <div class="container">
+    <div class="container" id="blog">
         <div class="row">
             <h2 class="up">Our blog</h2>
         </div>
-        <div class="row" id="blog">
+        <div class="row" id="blog_list">
             <!-- <div class="blog col-4 col-md-6 col-sm-12">
                 <img src="./img/blog/related-post-1.jpg" alt="Photo">
                 <a class="date" href="#/articles-by-date/year/month/day">23 Jun, 2018</a>
@@ -164,7 +182,7 @@
     <!-- testimonials end -->
 
     <!-- contact us start -->
-    <div class="container">
+    <div class="container" id="contact">
         <div class="row">
             <div class="col-12">
                 <h2 class="up">Get in touch</h2>
