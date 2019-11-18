@@ -1,6 +1,57 @@
 "use strict";
 
 // header
+function headerScroll() {
+    const headerHeight = document.querySelector('#main_header').offsetHeight;
+    // einamoji scroll'o vieta (aukstis)
+    const height = window.scrollY + headerHeight;
+    
+    // susidarome sarasa dominanciu sekciju
+    let links = [];     // ['#', '#about', ...]
+    const DOMlinks = document.querySelectorAll('#main_header nav > a');
+
+    for ( let i=0; i<DOMlinks.length; i++ ) {
+        const link = DOMlinks[i];
+        const href = link.href;
+        const split = href.split('#');
+
+        if ( split.length > 1 ) {
+            links.push( '#' + split[1] );
+        }
+    }
+
+    // randame aukscio pozicija dominanciu sekciju
+    let sectionHeights = [];
+    for ( let i=0; i<links.length; i++ ) {
+        const link = links[i];
+        if ( link === '#' ) {
+            sectionHeights.push(0);
+        } else {
+            const section = document.querySelector(link);
+            sectionHeights.push(section.offsetTop);
+        }
+    }
+
+    // nustatome kuri is dominanciu sekciju yra artimiausia mano esamai pozicijai
+    let wantedSection = 0;
+    for ( let i=0; i<sectionHeights.length; i++ ) {
+        const sectionH = sectionHeights[i];    
+        if ( sectionH <= height ) {
+            wantedSection = i;
+        } else {
+            break;
+        }
+    }
+        
+    // pries tai buvusi nuoroda header > nav netenka active klases
+    document.querySelector(`#main_header nav > a.active`).classList.remove('active');
+
+    // naujoji nuoroda header > nav gauna active klase
+    document.querySelector(`#main_header nav > a[href="${links[wantedSection]}"]`).classList.add('active');
+
+
+    return;
+}
 
 // hero
 
@@ -22,7 +73,7 @@ function renderServices( serviceList ) {
                 </div>`;
     }
     
-    return document.querySelector('#services').innerHTML = HTML;
+    return document.querySelector('#services_list').innerHTML = HTML;
 }
 
 // team
@@ -90,7 +141,7 @@ function renderBlog( list ) {
                 </div>`;
     }
 
-    return document.querySelector('#blog').innerHTML = HTML;
+    return document.querySelector('#blog_list').innerHTML = HTML;
 }
 
 // contact us
