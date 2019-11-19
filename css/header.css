@@ -7,6 +7,7 @@
     background-color: #000C;
     color: #fff;
     padding: 35px 0;
+    transition: all 0.2s;
 }
     #main_header .logo {
         display: inline-block;
@@ -89,6 +90,12 @@
             #main_header > .overlay i {
                 width: 45px;
             }
+
+    #main_header.header-transparent {
+        background-color: transparent;
+        color: #333;
+        padding: 50px 0;
+    }
 
 @media (max-width: 900px) {
     #main_header.show-menu > .overlay {

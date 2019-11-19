@@ -53,9 +53,39 @@ function headerScroll() {
     return;
 }
 
+function headerBackground() {
+    if ( window.scrollY > 80 ) {
+        document.querySelector('#main_header').classList.remove('header-transparent');
+    } else {
+        document.querySelector('#main_header').classList.add('header-transparent');
+    }
+    
+    return;
+}
+
 // hero
 
 // about me
+function renderSkills( list ) {
+    let HTML = '';
+
+    for ( let i=0; i<list.length; i++ ) {
+        const skill = list[i];
+        HTML += `<div class="progress-bar">
+                    <div class="texts">
+                        <div class="label">${skill.title}</div>
+                        <div class="value">${skill.value}%</div>
+                    </div>
+                    <div class="full">
+                        <div class="bar" style="width: ${skill.value}%;">
+                            <div class="loading"></div>
+                        </div>
+                    </div>
+                </div>`;
+    }
+
+    return document.querySelector('#skills').innerHTML = HTML;
+}
 
 // portfolio
 
@@ -134,7 +164,7 @@ function renderBlog( list ) {
 
         HTML += `<div class="blog col-4 col-md-6 col-sm-12">
                     <img src="./img/blog/${post.photo.src}" alt="${post.photo.alt}">
-                    <a class="date" href="#/posts-by-date/${dateLink}">${formatedDate}</a>
+                    <a class="date bg-primary" href="#/posts-by-date/${dateLink}">${formatedDate}</a>
                     <a class="title" href="${post.link}">${post.title}</a>
                     <p>${post.description}</p>
                     <a class="more" href="${post.link}">Learn more</a>
