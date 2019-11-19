@@ -53,6 +53,16 @@ function headerScroll() {
     return;
 }
 
+function headerBackground() {
+    if ( window.scrollY > 80 ) {
+        document.querySelector('#main_header').classList.remove('header-transparent');
+    } else {
+        document.querySelector('#main_header').classList.add('header-transparent');
+    }
+    
+    return;
+}
+
 // hero
 
 // about me
