@@ -66,6 +66,26 @@ function headerBackground() {
 // hero
 
 // about me
+function renderSkills( list ) {
+    let HTML = '';
+
+    for ( let i=0; i<list.length; i++ ) {
+        const skill = list[i];
+        HTML += `<div class="progress-bar">
+                    <div class="texts">
+                        <div class="label">${skill.title}</div>
+                        <div class="value">${skill.value}%</div>
+                    </div>
+                    <div class="full">
+                        <div class="bar" style="width: ${skill.value}%;">
+                            <div class="loading"></div>
+                        </div>
+                    </div>
+                </div>`;
+    }
+
+    return document.querySelector('#skills').innerHTML = HTML;
+}
 
 // portfolio
 

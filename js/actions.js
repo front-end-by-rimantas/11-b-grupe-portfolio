@@ -22,6 +22,7 @@ window.addEventListener('scroll', headerBackground);
 // hero
 
 // about me
+renderSkills( skills );
 
 // portfolio
 
