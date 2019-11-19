@@ -144,7 +144,7 @@ function renderBlog( list ) {
 
         HTML += `<div class="blog col-4 col-md-6 col-sm-12">
                     <img src="./img/blog/${post.photo.src}" alt="${post.photo.alt}">
-                    <a class="date" href="#/posts-by-date/${dateLink}">${formatedDate}</a>
+                    <a class="date bg-primary" href="#/posts-by-date/${dateLink}">${formatedDate}</a>
                     <a class="title" href="${post.link}">${post.title}</a>
                     <p>${post.description}</p>
                     <a class="more" href="${post.link}">Learn more</a>
