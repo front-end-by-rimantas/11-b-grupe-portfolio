@@ -1,0 +1,52 @@
+.pagination {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+    .pagination > .list {
+        display: inline-block;
+        width: 300%;
+        transition: all 1s;
+    }
+        .pagination > .list > .page {
+            display: inline-block;
+            float: left;
+            width: calc(100% / 3);
+        }
+    .pagination > .controls {
+        display: inline-block;
+    }
+        .pagination > .controls > .circle {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin: 5px;
+            border: 3px solid #999;
+            background-color: transparent;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+        }
+            .pagination > .controls > .circle::after {
+                display: none;
+                content: '';
+                width: 4px;
+                height: 4px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                background-color: #999;
+            }
+                .pagination > .controls > .circle:hover::after {
+                    display: inline-block;
+                }
+            .pagination > .controls > .circle.active {
+                border-color: var(--color-primary-dark);
+            }
+                .pagination > .controls > .circle.active::after {
+                    display: inline-block;
+                    background-color: var(--color-primary-dark);
+                }
