@@ -58,7 +58,8 @@ renderAchievements( numbers );
 // pricing
 
 // blog
-renderBlog( blog );
+// renderBlog( blog );
+renderPagination('#blog_list', renderBlogPost, blog, 3);
 
 // contact us
 

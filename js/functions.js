@@ -152,26 +152,28 @@ function renderBlog( list ) {
     }
     
     for ( let i=0; i<list.length; i++ ) {
-        const post = list[i];
-        
-        const pd = post.date;
-        const dateLink = `${pd.year}/${pd.month}/${pd.day}`;
-        const year = new Date().getFullYear();
-        let formatedDate = `${pd.day} ${months[pd.month-1]}`;
-        if ( year !== pd.year ) {
-            formatedDate += `, ${pd.year}`;
-        }
-
-        HTML += `<div class="blog col-4 col-md-6 col-sm-12">
-                    <img src="./img/blog/${post.photo.src}" alt="${post.photo.alt}">
-                    <a class="date bg-primary" href="#/posts-by-date/${dateLink}">${formatedDate}</a>
-                    <a class="title" href="${post.link}">${post.title}</a>
-                    <p>${post.description}</p>
-                    <a class="more" href="${post.link}">Learn more</a>
-                </div>`;
+        HTML += renderBlogPost( list[i] );
     }
 
     return document.querySelector('#blog_list').innerHTML = HTML;
+}
+
+function renderBlogPost( post, columns ) {
+    const pd = post.date;
+    const dateLink = `${pd.year}/${pd.month}/${pd.day}`;
+    const year = new Date().getFullYear();
+    let formatedDate = `${pd.day} ${months[pd.month-1]}`;
+    if ( year !== pd.year ) {
+        formatedDate += `, ${pd.year}`;
+    }
+
+    return `<div class="blog">
+                <img src="./img/blog/${post.photo.src}" alt="${post.photo.alt}">
+                <a class="date bg-primary" href="#/posts-by-date/${dateLink}">${formatedDate}</a>
+                <a class="title" href="${post.link}">${post.title}</a>
+                <p>${post.description}</p>
+                <a class="more" href="${post.link}">Learn more</a>
+            </div>`;
 }
 
 // contact us
@@ -180,3 +182,96 @@ function renderBlog( list ) {
 
 // footer
 
+// pagination
+
+function renderPagination( target, renderingFunction, data, countPerPage ) {
+    if ( typeof(target) !== 'string' ||
+         target === '' ) {
+        return console.error('Pirmasis parametras: Reikia nurodyti vieta kur sugeneruoti norima turini.');
+    }
+    
+    const DOM = document.querySelector(target);
+    if ( DOM === null ) {
+        return console.error('Pirmasis parametras: Nerasta nurodyta vieta, kur reikia sugeneruoti norima turini.');
+    }
+
+    if( typeof(renderingFunction) !== 'function' ) {
+        return console.error('Antrasis parametras: reikia nurodyti funkcijos pavadinima, kuri turi sugeneruoti pavienio elemento HTMLa.');
+    }
+
+    if ( !Array.isArray(data) ) {
+        return console.error('Treciasis parametras: reikia duoti sarasa objektu, kurie apraso generuojamus elementus.')
+    }
+    if ( data.length === 0 ) {
+        return console.error('Treciasis parametras: reikia duoti sarasa objektu, kuris nebuti tuscias.')
+    }
+    let objectsOnly = true;
+    for ( let i=0; i<data.length; i++ ) {
+        if ( typeof(data[i]) !== 'object' ) {
+            objectsOnly = false;
+            break;
+        }
+    }
+    if ( !objectsOnly ) {
+        return console.error('Treciasis parametras: sarasa turi sudaryti tik objektai.');
+    }
+    
+    if ( !isFinite(countPerPage) ||
+         typeof(countPerPage) !== 'number' ) {
+        return console.error('Ketvirtasis parametras: reikia nurodyti po kelis elementus atvaizduoti per puslapiavima (validus skaicius).');
+    }
+    if ( countPerPage < 1 ||
+         countPerPage % 1 !== 0 ||
+         [1, 2, 3, 4].indexOf(countPerPage) === -1 ) {
+        return console.error('Ketvirtasis parametras: reikia nurodyti po kelis elementus atvaizduoti per puslapiavima ir ju turi buti sveikas teigiamas skaicius.');
+    }
+    
+    // generuojame HTML
+    let HTML = '';
+    const pageCount = Math.ceil(data.length / countPerPage);
+    let listHTML = '';
+    let pageHTML = '';
+    let circlesHTML = '';
+
+    for ( let i=0; i<pageCount; i++ ) {
+        pageHTML = '';
+        for ( let p=0; p<countPerPage; p++ ) {
+            pageHTML += renderingFunction(data[i * countPerPage +  p], 12/countPerPage);
+        }
+
+        listHTML += `<div class="page">
+                        ${pageHTML}
+                    </div>`;
+        circlesHTML += `<div class="circle ${i === 0 ? 'active' : ''}"
+                            data-index="${i}"></div>`;
+    }
+
+    HTML += `<div class="pagination">
+                <div class="list">
+                    ${listHTML}
+                </div>    
+                <div class="controls">
+                    ${circlesHTML}
+                </div>
+            </div>`;
+
+    // iterpiame HTML i reikiama vieta
+    DOM.innerHTML = HTML;
+
+    // uzregistruojame event listenerius
+    const DOMlist = DOM.querySelector('.list');
+    const DOMcircles = DOM.querySelectorAll('.controls > .circle');
+    for ( let i=0; i<DOMcircles.length; i++ ) {
+        DOMcircles[i].addEventListener('click', (event) => {
+            // animate list
+            const index = parseInt(event.target.dataset.index);
+            DOMlist.style.marginLeft = (index * -100) + '%';
+
+            // active circle
+            DOM.querySelector('.controls > .circle.active').classList.remove('active');
+            event.target.classList.add('active');
+        })
+    }
+
+    return;
+}
