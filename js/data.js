@@ -59,6 +59,118 @@ const services = [
 ];
 
 // team
+const team = [
+    {
+        name: 'Adam Smith',
+        position: 'partner',
+        photo: { src: 'team1.jpg', alt: 'Adam Smith image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    },
+    {
+        name: 'Adam Smith',
+        position: 'partner',
+        photo: { src: 'team1.jpg', alt: 'Adam Smith image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    },
+    {
+        name: 'Adam Smith',
+        position: 'partner',
+        photo: { src: 'team1.jpg', alt: 'Adam Smith image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    },
+    {
+        name: 'Adam Smith',
+        position: 'partner',
+        photo: { src: 'team1.jpg', alt: 'Adam Smith image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    },
+    {
+        name: 'Annie Taylor',
+        position: 'partner',
+        photo: { src: 'team2.jpg', alt: 'Annie Taylor image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    },
+    {
+        name: 'Annie Taylor',
+        position: 'partner',
+        photo: { src: 'team2.jpg', alt: 'Annie Taylor image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    },
+    {
+        name: 'Annie Taylor',
+        position: 'partner',
+        photo: { src: 'team2.jpg', alt: 'Annie Taylor image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    },
+    {
+        name: 'Annie Taylor',
+        position: 'partner',
+        photo: { src: 'team2.jpg', alt: 'Annie Taylor image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    },
+    {
+        name: 'James Morgan',
+        position: 'partner',
+        photo: { src: 'team3.jpg', alt: 'James Morgan image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    },
+    {
+        name: 'James Morgan',
+        position: 'partner',
+        photo: { src: 'team3.jpg', alt: 'James Morgan image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    },
+    {
+        name: 'James Van der Lakenas',
+        position: 'partner',
+        photo: { src: 'team3.jpg', alt: 'James Morgan image' },
+        socials: [
+            { icon: 'twitter', link: '#' },
+            { icon: 'facebook', link: '#' },
+            { icon: 'linkedin', link: '#' }
+        ]
+    }
+]
 
 // numbers
 const numbers = [
