@@ -88,6 +88,46 @@ function renderSkills( list ) {
 }
 
 // portfolio
+function renderPortfolio( list ) {
+    let HTML = '';
+    let filterHTML = '';
+    let galleryHTML = '';
+    
+    // sugeneruoti filtravima
+    filterHTML = `<div class="item">filter</div>
+                <div class="item">filter</div>
+                <div class="item">filter</div>
+                <div class="item">filter</div>`;
+    
+    // sugeneruoti darbus
+    for ( let i=0; i<list.length; i++ ) {
+        const work = list[i];
+        console.log(work);
+        
+        galleryHTML += `<div class="item">
+                            <img src="./img/work/${work.photo}"
+                                alt="${work.title}">
+                        </div>`;
+    }
+
+    // apjungti viska i vientisa HTML
+    HTML += `<div class="gallery">
+                <div class="filter">
+                    ${filterHTML}
+                </div>
+                <div class="list">
+                    ${galleryHTML}
+                </div>
+            </div>`;
+
+    // pilna HMTL iterpiame i DOM'a
+    const DOMgallery = document.querySelector('#portfolio_gallery');
+    DOMgallery.innerHTML = HTML;
+
+    // prikabinti event listenerius, kad galeti filtruoti darbus
+    
+    return;
+}
 
 // services
 
@@ -108,8 +148,6 @@ function renderServices( serviceList ) {
 
 // team
 function renderTeamMember( member, columns ) {
-    console.log(member);
-    
     return `<div class="member">
                 <div class="top">
                     <img src="./img/team/${member.photo.src}"

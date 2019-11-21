@@ -1,0 +1,13 @@
+.gallery {
+    display: inline-block;
+    width: 100%;
+}
+    .gallery > .filter {
+        display: inline-block;
+        width: 100%;
+    }
+    .gallery > .list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
