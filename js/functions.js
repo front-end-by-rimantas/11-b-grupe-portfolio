@@ -107,6 +107,31 @@ function renderServices( serviceList ) {
 }
 
 // team
+function renderTeamMember( member, columns ) {
+    console.log(member);
+    
+    return `<div class="member">
+                <div class="top">
+                    <img src="./img/team/${member.photo.src}"
+                        alt="${member.photo.alt}">
+                    <div class="socials">
+                        <div class="list">
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <p class="name">${member.name}</p>
+                <p class="position">${member.position}</p>
+            </div>`;
+}
 
 // numbers
 function renderAchievements( list ) {
@@ -236,7 +261,11 @@ function renderPagination( target, renderingFunction, data, countPerPage ) {
     for ( let i=0; i<pageCount; i++ ) {
         pageHTML = '';
         for ( let p=0; p<countPerPage; p++ ) {
-            pageHTML += renderingFunction(data[i * countPerPage +  p], 12/countPerPage);
+            const dataIndex = i * countPerPage +  p;
+            if ( dataIndex >= data.length ) {
+                break;
+            }
+            pageHTML += renderingFunction(data[dataIndex], 12/countPerPage);
         }
 
         listHTML += `<div class="page">
