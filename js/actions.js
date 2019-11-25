@@ -46,6 +46,7 @@ document.onkeydown = function(evt) {
 
 
 // portfolio
+renderPortfolio( works );
 
 // services
 renderServices( services );

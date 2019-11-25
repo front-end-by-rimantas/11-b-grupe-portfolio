@@ -23,6 +23,57 @@ const skills = [
 ];
 
 // portfolio
+const works = [
+    {
+        photo: 'portfolio1.jpg',
+        title: 'Bananas',
+        link: '#',
+        tags: ['maistas'],
+        size: 1
+    },
+    {
+        photo: 'portfolio2.jpg',
+        title: 'Gele, kava ir klavietura',
+        link: '#',
+        tags: ['augalas', 'maistas', 'technika'],
+        size: 2
+    },
+    {
+        photo: 'portfolio3.jpg',
+        title: 'Kava',
+        link: '#',
+        tags: ['Maistas'],
+        size: 1
+    },
+    {
+        photo: 'portfolio4.jpg',
+        title: 'Ledai rankoje',
+        link: '#',
+        tags: ['maistas'],
+        size: 2
+    },
+    {
+        photo: 'portfolio5.jpg',
+        title: 'Kremas',
+        link: '#',
+        tags: ['kremas'],
+        size: 1
+    },
+    {
+        photo: 'portfolio6.jpg',
+        title: 'Kaktusas',
+        link: '#',
+        tags: ['augalas'],
+        size: 1
+    },
+    {
+        photo: 'portfolio7.jpg',
+        title: 'Fotoaparatas',
+        link: '#',
+        tags: ['technika'],
+        size: 1
+    }
+]
 
 // services
 const services = [
