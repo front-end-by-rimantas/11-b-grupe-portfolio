@@ -16,6 +16,7 @@
         }
     .pagination > .controls {
         display: inline-block;
+        margin-top: 20px;
     }
         .pagination > .controls > .circle {
             display: inline-block;

@@ -239,6 +239,10 @@ h2 {
 /************************************************************/
 /* PORTFOLIO */
 
+.gallery {
+    margin-top: 40px;
+}
+
 /************************************************************/
 
 /************************************************************/
@@ -271,6 +275,103 @@ h2 {
 
 /************************************************************/
 /* TEAM */
+.member {
+    display: inline-block;
+    float: left;
+    width: calc((100% - 120px) / 4);
+    margin: 0 15px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+    .member:hover {
+        padding: 14px;
+        border: 1px solid var(--color-primary-light);
+    }
+    .member > * {
+        display: inline-block;
+        width: 100%;
+    }
+    .member > .top {
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+        .member > .top > img {
+            display: inline-block;
+            width: 100%;
+        }
+        .member > .top >.socials {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            background-color: #0003;
+        }
+            .member:hover > .top > .socials {
+                display: inline-block;
+            }
+            .member .socials > .list {
+                display: inline-block;
+                width: 150px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+                .member .list > a {
+                    display: inline-block;
+                    float: left;
+                    width: 50px;
+                    height: 50px;
+                    padding: 5px;
+                }
+                    .member .list > a > i {
+                        display: inline-block;
+                        width: 40px;
+                        text-align: center;
+                        background-color: transparent;
+                        border: 1px solid #fff;
+                        border-radius: 50%;
+                        font-size: 20px;
+                        line-height: 40px;
+                        color: #fff;
+                    }
+                        .member .list > a > i:hover {
+                            background: var(--color-primary-dark);
+                            background: -moz-linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary-dark) 100%);
+                            background: -webkit-linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary-dark) 100%);
+                            background: linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary-dark) 100%);
+                            color: var(--color-primary-light-anti);
+                        }
+    .member > .name {
+        margin-bottom: 20px;
+        font-size: 20px;
+        line-height: 20px;
+        font-weight: bold;
+        position: relative;
+    }
+        .member > .name::after {
+            display: inline-block;
+            content: '';
+            width: 40px;
+            height: 4px;
+            position: absolute;
+            bottom: -10px;
+            left: calc(50% - 20px);
+            background: var(--color-primary-dark);
+            background: -moz-linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary-dark) 100%);
+            background: -webkit-linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary-dark) 100%);
+            background: linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary-dark) 100%);
+        }
+    .member > .position {
+        text-transform: capitalize;
+        color: #777;
+    }
 
 /************************************************************/
 

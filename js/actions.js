@@ -46,11 +46,13 @@ document.onkeydown = function(evt) {
 
 
 // portfolio
+renderPortfolio( works );
 
 // services
 renderServices( services );
 
 // team
+renderPagination('#team_members', renderTeamMember, team, 4);
 
 // numbers
 renderAchievements( numbers );
