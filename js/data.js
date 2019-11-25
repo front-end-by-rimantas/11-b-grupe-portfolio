@@ -27,37 +27,51 @@ const works = [
     {
         photo: 'portfolio1.jpg',
         title: 'Bananas',
-        tags: ['maistas']
+        link: '#',
+        tags: ['maistas'],
+        size: 1
     },
     {
         photo: 'portfolio2.jpg',
         title: 'Gele, kava ir klavietura',
-        tags: ['augalas', 'maistas', 'technika']
+        link: '#',
+        tags: ['augalas', 'maistas', 'technika'],
+        size: 2
     },
     {
         photo: 'portfolio3.jpg',
         title: 'Kava',
-        tags: ['maistas']
+        link: '#',
+        tags: ['Maistas'],
+        size: 1
     },
     {
         photo: 'portfolio4.jpg',
         title: 'Ledai rankoje',
-        tags: ['maistas']
+        link: '#',
+        tags: ['maistas'],
+        size: 2
     },
     {
         photo: 'portfolio5.jpg',
         title: 'Kremas',
-        tags: ['kremas']
+        link: '#',
+        tags: ['kremas'],
+        size: 1
     },
     {
         photo: 'portfolio6.jpg',
         title: 'Kaktusas',
-        tags: ['augalas']
+        link: '#',
+        tags: ['augalas'],
+        size: 1
     },
     {
         photo: 'portfolio7.jpg',
         title: 'Fotoaparatas',
-        tags: ['technika']
+        link: '#',
+        tags: ['technika'],
+        size: 1
     }
 ]
 
