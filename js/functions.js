@@ -249,6 +249,11 @@ function renderAchievements( list ) {
 // pricing
 
 // blog
+/**
+ * Is duotu duomenu generuojamas blog'o postu sarasas
+ * @param {Array.<Object>} list Sarasas objektu, kuriuos naudojame renderinimui
+ * @returns {string} I tinkama vieta istato sugeneruota HTML koda
+ */
 function renderBlog( list ) {
     let HTML = '';
 
@@ -266,7 +271,12 @@ function renderBlog( list ) {
     return document.querySelector('#blog_list').innerHTML = HTML;
 }
 
-function renderBlogPost( post, columns ) {
+/**
+ * Vienetinio blog'o post generavimo funkcija
+ * @param {Object} post Objektas, kuris pilnai apraso vieno post'o turini
+ * @returns Sugeneruota vieno post HTML
+ */
+function renderBlogPost( post ) {
     const pd = post.date;
     const dateLink = `${pd.year}/${pd.month}/${pd.day}`;
     const year = new Date().getFullYear();
@@ -291,7 +301,14 @@ function renderBlogPost( post, columns ) {
 // footer
 
 // pagination
-
+/**
+ * Karkasas kuris sukuria puslapiuojama turini, pagal pateiktus duomenis ir nurodyta vienetini turini generuojancia funkcija
+ * @param {string} target CSS'inis selektorius rasti norimai vietai, kuri sugeneruoti turini
+ * @param {function} renderingFunction Nuoroda (refference) i funkcija, kuria reikia naudoti generuojant viena elementa
+ * @param {Array.<Object>} data Sarasas objektu is kuriu generuojame turini
+ * @param {number} countPerPage Sveikasis skaicius nurodantis po kiek elementu atvaizduoti per viena puslapi. Min: 1; Max: 5.
+ * @returns {string} Sugeneruotas turinys, kuri galima puslapiuoti
+ */
 function renderPagination( target, renderingFunction, data, countPerPage ) {
     if ( typeof(target) !== 'string' ||
          target === '' ) {

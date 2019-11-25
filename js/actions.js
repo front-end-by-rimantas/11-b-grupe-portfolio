@@ -63,6 +63,9 @@ renderAchievements( numbers );
 // renderBlog( blog );
 renderPagination('#blog_list', renderBlogPost, blog, 3);
 
+// clients
+// renderPagination('div > p', renderClientTestimonial, [{}, {}], 2);
+
 // contact us
 
 // maps
