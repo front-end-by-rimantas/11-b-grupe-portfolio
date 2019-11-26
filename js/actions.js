@@ -20,6 +20,7 @@ window.addEventListener('scroll', headerScroll);
 window.addEventListener('scroll', headerBackground);
 
 // hero
+manipulateLetter( heroes, 0, 0, 'add' );
 
 // about me
 renderSkills( skills );
