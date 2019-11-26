@@ -64,6 +64,65 @@ function headerBackground() {
 }
 
 // hero
+/**
+ * Rekursine funkcija, kuri manipuliuoja tekstu
+ * @param {Array.<Object>} list Sarasas tekstu, kuriuos reikia animuoti
+ * @param {number} wordIndex Kelinta zodi animuoti
+ * @param {number} letterIndex Kelinta raide animuoti
+ * @param {string} actionType Koki veiksma atlikti
+ */
+function manipulateLetter( list, wordIndex, letterIndex, actionType ) {
+    // elementas kuriame animuotai keiciasi tekstas
+    const target = document.getElementById('animated_text');
+    const timeStep = 100;
+    const delayAfter = 1000;
+    const deleteTimeStep = 50;
+    const delayBefore = 1000;
+
+    if ( actionType === 'add' ) {
+        target.classList.add('line');
+        setTimeout(() => {
+            target.textContent += list[wordIndex][letterIndex];
+            
+            if ( list[wordIndex].length > letterIndex + 1 ) {
+                manipulateLetter( list, wordIndex, letterIndex+1, actionType )
+            } else {
+                manipulateLetter( list, wordIndex, letterIndex, 'delayAfter' )
+            }
+        }, timeStep);
+    }
+    if ( actionType === 'delayAfter' ) {
+        // target.classList.remove('line');
+        setTimeout(() => {
+            manipulateLetter( list, wordIndex, letterIndex, 'remove' )
+        }, delayAfter);
+        
+    }
+    if ( actionType === 'remove' ) {
+        // target.classList.add('line');
+        setTimeout(() => {
+            const word = list[wordIndex];
+            target.textContent = word.slice(0, letterIndex);
+            
+            if ( 0 <= letterIndex - 1 ) {
+                manipulateLetter( list, wordIndex, letterIndex-1, actionType )
+            } else {
+                manipulateLetter( list, wordIndex, letterIndex, 'delayBefore' )
+            }
+        }, deleteTimeStep);
+    }
+    if ( actionType === 'delayBefore' ) {
+        target.classList.remove('line');
+        setTimeout(() => {
+            // tikriname kuri zodi paduoti (jei pabaiga, tai duodam vel pirma)
+            if ( wordIndex+1 === list.length ) {
+                manipulateLetter( list, 0, 0, 'add' )
+            } else {
+                manipulateLetter( list, wordIndex+1, 0, 'add' )
+            }
+        }, delayBefore);
+    }
+}
 
 // about me
 function renderSkills( list ) {
@@ -114,8 +173,6 @@ function renderPortfolio( list ) {
     // sugeneruoti darbus
     for ( let i=0; i<list.length; i++ ) {
         const work = list[i];
-        console.log(work);
-        
         galleryHTML += `<div class="item ${work.size === 2 ? 'size-2' : ''}"
                             data-tags="${work.tags}">
                             <img src="./img/work/${work.photo}"

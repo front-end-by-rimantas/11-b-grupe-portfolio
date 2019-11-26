@@ -90,6 +90,13 @@ h2 {
         font-size: 72px;
         line-height: 120px;
     }
+        #hero .animated-text > div {
+            display: inline;
+            border: none;
+        }
+        #hero .animated-text > div.line {
+            border-right: 5px solid #fff;
+        }
     #hero .mouse {
         position: absolute;
         left: calc(50% - 20px);
