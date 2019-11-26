@@ -5,6 +5,7 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 // header
 
 // hero
+const heroes = ['Jackie Chan', 'Arnold Schwarzenegger', 'Chuck Norris', 'Bruce Lee'];
 
 // about me
 const skills = [

@@ -64,6 +64,65 @@ function headerBackground() {
 }
 
 // hero
+/**
+ * Rekursine funkcija, kuri manipuliuoja tekstu
+ * @param {Array.<Object>} list Sarasas tekstu, kuriuos reikia animuoti
+ * @param {number} wordIndex Kelinta zodi animuoti
+ * @param {number} letterIndex Kelinta raide animuoti
+ * @param {string} actionType Koki veiksma atlikti
+ */
+function manipulateLetter( list, wordIndex, letterIndex, actionType ) {
+    // elementas kuriame animuotai keiciasi tekstas
+    const target = document.getElementById('animated_text');
+    const timeStep = 100;
+    const delayAfter = 1000;
+    const deleteTimeStep = 50;
+    const delayBefore = 1000;
+
+    if ( actionType === 'add' ) {
+        target.classList.add('line');
+        setTimeout(() => {
+            target.textContent += list[wordIndex][letterIndex];
+            
+            if ( list[wordIndex].length > letterIndex + 1 ) {
+                manipulateLetter( list, wordIndex, letterIndex+1, actionType )
+            } else {
+                manipulateLetter( list, wordIndex, letterIndex, 'delayAfter' )
+            }
+        }, timeStep);
+    }
+    if ( actionType === 'delayAfter' ) {
+        // target.classList.remove('line');
+        setTimeout(() => {
+            manipulateLetter( list, wordIndex, letterIndex, 'remove' )
+        }, delayAfter);
+        
+    }
+    if ( actionType === 'remove' ) {
+        // target.classList.add('line');
+        setTimeout(() => {
+            const word = list[wordIndex];
+            target.textContent = word.slice(0, letterIndex);
+            
+            if ( 0 <= letterIndex - 1 ) {
+                manipulateLetter( list, wordIndex, letterIndex-1, actionType )
+            } else {
+                manipulateLetter( list, wordIndex, letterIndex, 'delayBefore' )
+            }
+        }, deleteTimeStep);
+    }
+    if ( actionType === 'delayBefore' ) {
+        target.classList.remove('line');
+        setTimeout(() => {
+            // tikriname kuri zodi paduoti (jei pabaiga, tai duodam vel pirma)
+            if ( wordIndex+1 === list.length ) {
+                manipulateLetter( list, 0, 0, 'add' )
+            } else {
+                manipulateLetter( list, wordIndex+1, 0, 'add' )
+            }
+        }, delayBefore);
+    }
+}
 
 // about me
 function renderSkills( list ) {
@@ -114,8 +173,6 @@ function renderPortfolio( list ) {
     // sugeneruoti darbus
     for ( let i=0; i<list.length; i++ ) {
         const work = list[i];
-        console.log(work);
-        
         galleryHTML += `<div class="item ${work.size === 2 ? 'size-2' : ''}"
                             data-tags="${work.tags}">
                             <img src="./img/work/${work.photo}"
@@ -249,6 +306,11 @@ function renderAchievements( list ) {
 // pricing
 
 // blog
+/**
+ * Is duotu duomenu generuojamas blog'o postu sarasas
+ * @param {Array.<Object>} list Sarasas objektu, kuriuos naudojame renderinimui
+ * @returns {string} I tinkama vieta istato sugeneruota HTML koda
+ */
 function renderBlog( list ) {
     let HTML = '';
 
@@ -266,7 +328,12 @@ function renderBlog( list ) {
     return document.querySelector('#blog_list').innerHTML = HTML;
 }
 
-function renderBlogPost( post, columns ) {
+/**
+ * Vienetinio blog'o post generavimo funkcija
+ * @param {Object} post Objektas, kuris pilnai apraso vieno post'o turini
+ * @returns Sugeneruota vieno post HTML
+ */
+function renderBlogPost( post ) {
     const pd = post.date;
     const dateLink = `${pd.year}/${pd.month}/${pd.day}`;
     const year = new Date().getFullYear();
@@ -291,7 +358,14 @@ function renderBlogPost( post, columns ) {
 // footer
 
 // pagination
-
+/**
+ * Karkasas kuris sukuria puslapiuojama turini, pagal pateiktus duomenis ir nurodyta vienetini turini generuojancia funkcija
+ * @param {string} target CSS'inis selektorius rasti norimai vietai, kuri sugeneruoti turini
+ * @param {function} renderingFunction Nuoroda (refference) i funkcija, kuria reikia naudoti generuojant viena elementa
+ * @param {Array.<Object>} data Sarasas objektu is kuriu generuojame turini
+ * @param {number} countPerPage Sveikasis skaicius nurodantis po kiek elementu atvaizduoti per viena puslapi. Min: 1; Max: 5.
+ * @returns {string} Sugeneruotas turinys, kuri galima puslapiuoti
+ */
 function renderPagination( target, renderingFunction, data, countPerPage ) {
     if ( typeof(target) !== 'string' ||
          target === '' ) {

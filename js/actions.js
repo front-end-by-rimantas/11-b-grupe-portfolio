@@ -20,6 +20,7 @@ window.addEventListener('scroll', headerScroll);
 window.addEventListener('scroll', headerBackground);
 
 // hero
+manipulateLetter( heroes, 0, 0, 'add' );
 
 // about me
 renderSkills( skills );
@@ -62,6 +63,9 @@ renderAchievements( numbers );
 // blog
 // renderBlog( blog );
 renderPagination('#blog_list', renderBlogPost, blog, 3);
+
+// clients
+// renderPagination('div > p', renderClientTestimonial, [{}, {}], 2);
 
 // contact us
 
