@@ -2,6 +2,9 @@
     display: inline-block;
     width: 100%;
 }
+    .progress-bar + .progress-bar {
+        margin-top: 40px;
+    }
     .progress-bar > .texts {
         display: inline-block;
         width: 100%;
@@ -33,12 +36,13 @@
         }
             .progress-bar > .full > .bar > .loading {
                 display: inline-block;
-                width: 100%;
+                width: 0;
                 height: 100%;
                 background-color: #6FB2F8;
+                animation: 3s 1 forwards;
+            }
+            .progress-bar[data-animated="done"] > .full > .bar > .loading {
                 animation-name: loading;
-                animation-iteration-count: 1;
-                animation-duration: 3s;
             }
 
 @keyframes loading {
