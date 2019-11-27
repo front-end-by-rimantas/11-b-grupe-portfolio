@@ -130,10 +130,10 @@ function renderSkills( list ) {
 
     for ( let i=0; i<list.length; i++ ) {
         const skill = list[i];
-        HTML += `<div class="progress-bar">
+        HTML += `<div class="progress-bar" data-value="${skill.value}">
                     <div class="texts">
                         <div class="label">${skill.title}</div>
-                        <div class="value">${skill.value}%</div>
+                        <div class="value">0%</div>
                     </div>
                     <div class="full">
                         <div class="bar" style="width: ${skill.value}%;">
@@ -144,6 +144,38 @@ function renderSkills( list ) {
     }
 
     return document.querySelector('#skills').innerHTML = HTML;
+}
+
+function progressBarAnimation() {
+    const myPositionY = scrollY + window.innerHeight;            // analogiska: window.scrollY;
+    const progressBars = document.querySelectorAll('.progress-bar');
+    
+    for ( let i=0; i<progressBars.length; i++ ) {
+        const item = progressBars[i];
+        if ( item.dataset.animated && item.dataset.animated === 'done' ) {
+            continue;
+        }
+        const itemHeight = parseFloat(getComputedStyle(item).height);
+        if ( item.offsetTop + itemHeight > myPositionY ) {
+            continue;
+            // break;       // galima nes jei nematai einamojo, tai ir kitu matyti negali, tai ciklas baigtas
+        }
+        // kadangi animacija ant sio elemento dar neigyvendinta - animuojame
+        item.dataset.animated = 'done';
+        // animuojame procento reiksmes keitimasi nuo 0 iki nurodytos vertes
+        const valueDOM = item.querySelector('.texts > .value');
+        const value = parseInt(item.dataset.value);
+        const time = 3;     // seconds
+        let currentStep = 0;
+
+        const timer = setInterval(() => {
+            valueDOM.textContent = currentStep + '%';
+            if ( currentStep === value ) {
+                clearInterval(timer);
+            }
+            currentStep++;
+        }, time * 1000 / (value + 1));
+    }
 }
 
 // portfolio
