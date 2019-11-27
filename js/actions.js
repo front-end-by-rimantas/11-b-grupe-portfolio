@@ -16,8 +16,14 @@ close.addEventListener('click', () => {
 });
 
 // scroll
-window.addEventListener('scroll', headerScroll);
-window.addEventListener('scroll', headerBackground);
+window.addEventListener('scroll', () => {
+    headerScroll();
+    headerBackground();
+    progressBarAnimation();
+});
+headerScroll();
+headerBackground();
+progressBarAnimation();
 
 // hero
 manipulateLetter( heroes, 0, 0, 'add' );
